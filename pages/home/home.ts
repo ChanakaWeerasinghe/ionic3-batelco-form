@@ -7,7 +7,8 @@ import {Data} from './home.service';
   templateUrl: 'home.html'
 })
 export class HomePage {
- 
+  billInquiry:false;
+  quickPay : true;
   searchTerm : any="";
   jsonData : any;
   
@@ -26,6 +27,15 @@ export class HomePage {
  
     }
   
- 
+    someEvent(event, type) {
+        console.log(event)
+        if (type == "quickPay") {
+            this.billInquiry = false
+            this.quickPay = true
+        } else if (type == "billInquiry") {
+            this.billInquiry = true
+            this.quickPay = false
+        }
+    }
 
 }
