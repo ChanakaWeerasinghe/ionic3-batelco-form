@@ -1,0 +1,163 @@
+ 
+<ion-content padding>
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> sdd</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-divider>
+    <span class="utilityLabel"> sss</span>
+  </ion-item-divider>
+  <img class="bill-icons" src="assets/bills/batelco.png">
+  <div class="optionDiv">
+    <!-- <div class="formDiv">
+
+      <div class="receiveOptions">
+        <div class="checkbtns">
+          <ion-item class="reciveIcons">
+            <ion-label>Quick Pay</ion-label>
+            <ion-checkbox (ngModelChange)="someEvent($event, 'quickPay')" [(ngModel)]="quickPay">
+            </ion-checkbox>
+          </ion-item>
+          <ion-item class="reciveIcons">
+            <ion-label>Bill Inquiry</ion-label>
+            <ion-checkbox (ngModelChange)="someEvent($event, 'billInquiry')" [(ngModel)]="billInquiry">
+            </ion-checkbox>
+          </ion-item>
+        </div>
+      </div>
+
+      <sf-form [schema]="formData" [model]="myModel" (onChange)="assignFormModalValue($event.value)"></sf-form>
+      
+    </div> -->
+    <ion-list>
+      <ion-item class="utilityItem">
+        <ion-label color="primary" floating>Telephone Number</ion-label>
+        <!-- <ion-input type="tel" class="accountInput" (keydown)="fixForCardNumber($event);"
+          [textMask]="{mask: masks.cardNumber}" [(ngModel)]="telNumber"></ion-input> -->
+        <ion-input type="tel" class="accountInput" [(ngModel)]="telNumber"></ion-input>
+      </ion-item>
+
+      <div class="radioptions">
+        <div class="checkbtns">
+          <ion-item class="reciveIcons">
+            <ion-label>Quick Pay</ion-label>
+            <ion-checkbox (ngModelChange)="someEvent($event, 'quickPay')" [(ngModel)]="quickPay">
+            </ion-checkbox>
+          </ion-item>
+          <ion-item class="reciveIcons">
+            <ion-label>Bill Inquiry</ion-label>
+            <ion-checkbox (ngModelChange)="someEvent($event, 'billInquiry')" [(ngModel)]="billInquiry">
+            </ion-checkbox>
+          </ion-item>
+        </div>
+      </div>
+
+      <div *ngIf="billInquiry" class="billInquiryDiv">
+
+        <div class="radioptions">
+          <span class="radioptionsSpan">ID Type:</span>
+          <div class="checkbtns">
+            <ion-item class="reciveIcons">
+              <ion-label>CR Number</ion-label>
+              <ion-checkbox (ngModelChange)="cprEvent($event, 'cr')" [(ngModel)]="crNumber">
+              </ion-checkbox>
+            </ion-item>
+<!--            <ion-item class="reciveIcons">-->
+<!--              <ion-label>CPR Number</ion-label>-->
+<!--              <ion-checkbox (ngModelChange)="cprEvent($event, 'cpr')" [(ngModel)]="cprNumber">-->
+<!--              </ion-checkbox>-->
+<!--            </ion-item>-->
+          </div>
+        </div>
+
+        <ion-item class="utilityItem">
+          <ion-label color="primary" floating>{{'onboard.cprPlaceHolder' | translate:lang}}</ion-label>
+          <ion-input type="tel" class="accountInput" [(ngModel)]="crCprNumber"></ion-input>
+        </ion-item>
+
+      </div>
+
+      <div *ngIf="quickPay" class="billInquiryDiv">
+
+        <ion-item class="utilityItem">
+          <ion-label color="primary" floating>Amount</ion-label>
+          <ion-input type="tel" class="accountInput" [(ngModel)]="batelcomount" [brmasker]="{money: true, decimalCaracter: '.', decimal: '3'}"></ion-input>
+        </ion-item>
+
+        <div class="radioptions">
+          <span class="radioptionsSpan">ID Type:</span>
+          <div class="checkbtns">
+            <ion-item class="reciveIcons">
+              <ion-label>CR Number</ion-label>
+              <ion-checkbox (ngModelChange)="cprEvent($event, 'cr')" [(ngModel)]="crNumber">
+              </ion-checkbox>
+            </ion-item>
+            <ion-item class="reciveIcons">
+              <ion-label>CPR Number</ion-label>
+              <ion-checkbox (ngModelChange)="cprEvent($event, 'cpr')" [(ngModel)]="cprNumber">
+              </ion-checkbox>
+            </ion-item>
+          </div>
+        </div>
+
+        <ion-item class="utilityItem">
+          <ion-label color="primary" floating>{{'onboard.cprPlaceHolder' | translate:lang}}</ion-label>
+          <ion-input type="number" class="accountInput" [(ngModel)]="crCprNumber"></ion-input>
+        </ion-item>
+
+        <div class="radioptions">
+          <span class="radioptionsSpan">Line Type:</span>
+          <div class="checkbtns">
+            <ion-item class="reciveIcons">
+              <ion-label>Fixed Line</ion-label>
+              <ion-checkbox (ngModelChange)="lineTypeEvent($event, 'fix')" [(ngModel)]="fixedLine">
+              </ion-checkbox>
+            </ion-item>
+            <ion-item class="reciveIcons">
+              <ion-label>Mobile</ion-label>
+              <ion-checkbox (ngModelChange)="lineTypeEvent($event, 'mob')" [(ngModel)]="mobile">
+              </ion-checkbox>
+            </ion-item>
+          </div>
+        </div>
+
+      </div>
+
+    </ion-list>
+
+  </div>
+
+  <br>
+
+  <!-- <select-instrument-component *ngIf="quickPay" [billAmount]="batelcomount"
+    (selectedInstrumentIdEvent)="selectedID($event)">
+  </select-instrument-component> -->
+
+  <div *ngIf="quickPay" style="margin-top: 1em;">
+    <!-- <ion-item style="border-bottom: 0.55px solid #c8c7cc;">
+      <ion-label style="font-size: 1.2em;
+                    font-weight: bold;">Schedule</ion-label>
+      <ion-toggle color="primary" [(ngModel)]="schedule"></ion-toggle>
+    </ion-item> -->
+
+    <ion-item style="border-bottom: 0.55px solid #c8c7cc;">
+      <ion-label style="font-size: 1.2em;
+                    font-weight: bold;">Save</ion-label>
+      <ion-toggle color="primary" [(ngModel)]="templateSave"></ion-toggle>
+    </ion-item>
+
+  </div>
+
+  <br>
+
+  
+
+</ion-content>
+
+  
