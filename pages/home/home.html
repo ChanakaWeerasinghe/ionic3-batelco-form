@@ -10,6 +10,9 @@
 </ion-header>
 
 <ion-content>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    
   <ion-item-divider>
     <span class="utilityLabel"> sss</span>
   </ion-item-divider>
@@ -20,19 +23,19 @@
       <ion-item class="utilityItem">
         <ion-label color="primary" floating>Telephone Number</ion-label>
   
-        <ion-input type="tel" class="accountInput" [(ngModel)]="telNumber"></ion-input>
+        <ion-input type="tel" class="accountInput" [(ngModel)]="telNumber"        formControlName="telNumber"></ion-input>
       </ion-item>
 
       <div class="radioptions">
         <div class="checkbtns">
           <ion-item class="reciveIcons">
             <ion-label>Quick Pay</ion-label>
-            <ion-checkbox (ngModelChange)="someEvent($event, 'quickPay')" [(ngModel)]="quickPay">
+            <ion-checkbox (ngModelChange)="someEvent($event, 'quickPay')" [(ngModel)]="quickPay" formControlName="quickPay">
             </ion-checkbox>
           </ion-item>
           <ion-item class="reciveIcons">
             <ion-label>Bill Inquiry</ion-label>
-            <ion-checkbox (ngModelChange)="someEvent($event, 'billInquiry')" [(ngModel)]="billInquiry">
+            <ion-checkbox (ngModelChange)="someEvent($event, 'billInquiry')" [(ngModel)]="billInquiry" formControlName="billInquiry">
             </ion-checkbox>
           </ion-item>
         </div>
@@ -45,7 +48,7 @@
           <div class="checkbtns">
             <ion-item class="reciveIcons">
               <ion-label>CR Number</ion-label>
-              <ion-checkbox (ngModelChange)="cprEvent($event, 'cr')" [(ngModel)]="crNumber">
+              <ion-checkbox (ngModelChange)="cprEvent($event, 'cr')" [(ngModel)]="crNumber" formControlName="firstName">
               </ion-checkbox>
             </ion-item>
 
@@ -54,7 +57,7 @@
 
         <ion-item class="utilityItem">
           <ion-label color="primary" floating> cprPlaceHolder </ion-label>
-          <ion-input type="tel" class="accountInput" [(ngModel)]="crCprNumber"></ion-input>
+          <ion-input type="tel" class="accountInput" [(ngModel)]="crCprNumber" formControlName="firstName"></ion-input>
         </ion-item>
 
       </div>
@@ -63,7 +66,7 @@
 
         <ion-item class="utilityItem">
           <ion-label color="primary" floating>Amount</ion-label>
-          <ion-input type="tel" class="accountInput" [(ngModel)]="batelcomount" [brmasker]="{money: true, decimalCaracter: '.', decimal: '3'}"></ion-input>
+          <ion-input type="tel" class="accountInput" [(ngModel)]="batelcomount" [brmasker]="{money: true, decimalCaracter: '.', decimal: '3'}" formControlName="firstName"></ion-input>
         </ion-item>
 
         <div class="radioptions">
@@ -71,12 +74,12 @@
           <div class="checkbtns">
             <ion-item class="reciveIcons">
               <ion-label>CR Number</ion-label>
-              <ion-checkbox (ngModelChange)="cprEvent($event, 'cr')" [(ngModel)]="crNumber">
+              <ion-checkbox (ngModelChange)="cprEvent($event, 'cr')" [(ngModel)]="crNumber" formControlName="firstName">
               </ion-checkbox>
             </ion-item>
             <ion-item class="reciveIcons">
               <ion-label>CPR Number</ion-label>
-              <ion-checkbox (ngModelChange)="cprEvent($event, 'cpr')" [(ngModel)]="cprNumber">
+              <ion-checkbox (ngModelChange)="cprEvent($event, 'cpr')" [(ngModel)]="cprNumber" formControlName="firstName"> 
               </ion-checkbox>
             </ion-item>
           </div>
@@ -84,7 +87,7 @@
 
         <ion-item class="utilityItem">
           <ion-label color="primary" floating> cprPlaceHolder </ion-label>
-          <ion-input type="number" class="accountInput" [(ngModel)]="crCprNumber"></ion-input>
+          <ion-input type="number" class="accountInput" [(ngModel)]="crCprNumber" formControlName="firstName"></ion-input>
         </ion-item>
 
         <div class="radioptions">
@@ -92,12 +95,12 @@
           <div class="checkbtns">
             <ion-item class="reciveIcons">
               <ion-label>Fixed Line</ion-label>
-              <ion-checkbox (ngModelChange)="lineTypeEvent($event, 'fix')" [(ngModel)]="fixedLine">
+              <ion-checkbox (ngModelChange)="lineTypeEvent($event, 'fix')" [(ngModel)]="fixedLine" formControlName="firstName">
               </ion-checkbox>
             </ion-item>
             <ion-item class="reciveIcons">
               <ion-label>Mobile</ion-label>
-              <ion-checkbox (ngModelChange)="lineTypeEvent($event, 'mob')" [(ngModel)]="mobile">
+              <ion-checkbox (ngModelChange)="lineTypeEvent($event, 'mob')" [(ngModel)]="mobile" formControlName="firstName">
               </ion-checkbox>
             </ion-item>
           </div>
@@ -120,15 +123,15 @@
     <ion-item style="border-bottom: 0.55px solid #c8c7cc;">
       <ion-label style="font-size: 1.2em;
                     font-weight: bold;">Save</ion-label>
-      <ion-toggle color="primary" [(ngModel)]="templateSave"></ion-toggle>
+      <ion-toggle color="primary" [(ngModel)]="templateSave" formControlName="firstName"></ion-toggle>
     </ion-item>
 
   </div>
 
   <br>
 
-  
 
+    </form>
 </ion-content>
 
   

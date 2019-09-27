@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {Data} from './home.service';
+import { FormBuilder, FormGroup, Validators ,FormControl} from '@angular/forms';
 
 @Component({
   selector: 'page-home',
@@ -11,10 +12,18 @@ export class HomePage {
   quickPay : boolean;
   searchTerm : any="";
   jsonData : any;
+  registerForm: FormGroup;
+  constructor(private formBuilder: FormBuilder,public navCtrl: NavController, public data : Data) {
   
-  constructor(public navCtrl: NavController, public data : Data) {
-    
-    
+
+  this.registerForm = this.formBuilder.group({
+            firstName: ['', Validators.required],
+            billInquiry: ['', [Validators.required, Validators.email]],
+            quickPay: ['', [Validators.required, Validators.minLength(6)]],
+            telNumber: ['', Validators.required]
+        }, {
+            
+        });
   }
 
   ionViewDidLoad(){
