@@ -7,8 +7,8 @@ import {Data} from './home.service';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  billInquiry:false;
-  quickPay : true;
+  billInquiry:boolean;
+  quickPay : boolean;
   searchTerm : any="";
   jsonData : any;
   
